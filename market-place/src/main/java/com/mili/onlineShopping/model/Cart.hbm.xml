@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mili.onlineShopping.model">
+
+	<class name="Cart" table="CART">
+		<id name="userId" type="java.lang.Integer" column="USER_ID">
+			<generator class="identity" />
+		</id>
+		<property name="cartLine" type="java.lang.Integer" column="CART_LINE"/>
+		<property name="grandTotal" type="double" column="GRAND_TOTAL"/>
+		<one-to-one name="userDetail" class="UserDetail"
+			constrained="true"/>
+	</class>
+</hibernate-mapping>

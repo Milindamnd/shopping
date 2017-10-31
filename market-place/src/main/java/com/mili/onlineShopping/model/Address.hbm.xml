@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mili.onlineShopping.model">
+
+	<class name="Address" table="ADDRESS">
+		<id name="addressId" type="java.lang.Integer" column="ADDRESS_ID">
+		<generator class="identity"/>
+		</id>
+		<property name="userId" type="java.lang.Integer" column="USER_ID"/>
+		<property name="addressLineOne" type="string" column="ADDRESS_LINE_ONE"/>
+		<property name="addressLineTwo" type="string" column="ADDRESS_LINE_TWO"/>
+		<property name="city" type="string" column="CITY"/>
+		<property name="state" type="string" column="STATE"/>
+		<property name="country" type="string" column="COUNTRY"/>
+		<property name="postalCode" type="string" column="POSTAL_CODE"/>
+		<property name="billing" type="boolean" column="BILLING"/>
+		<property name="shipping" type="boolean" column="SHIPPING"/>
+	</class>
+</hibernate-mapping>
