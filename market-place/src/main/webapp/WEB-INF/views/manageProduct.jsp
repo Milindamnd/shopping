@@ -140,8 +140,9 @@
 
 	<div class="row">
 		<div class="col-xs-12">
-			<div style="overflow: auto">
-				<table id="adminProductList"
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table id="adminProductList"
 					class="table table-striped table-borderd">
 					<thead>
 						<tr>
@@ -171,6 +172,10 @@
 					</tfoot>
 
 				</table>
+
+				
+			</div>
+					
 			</div>
 		</div>
 	</div>

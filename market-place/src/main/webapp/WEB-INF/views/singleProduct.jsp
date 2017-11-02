@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <div class="container">
 
 	<!-- Breadcrumb -->
@@ -45,21 +46,29 @@
 				</c:otherwise>
 
 			</c:choose>
+			<security:authorize access="hasAuthority('USER')">
 			<c:choose>
 				<c:when test="${product.qty <1}">
 					<a href="javascript:void(0)" class="btn btn-danger disable"><span
-						class="glyphicon glyphicon-shopping-cart"><strike>Add&#160;to&#160;Cart</strike></a>
+						class="glyphicon glyphicon-shopping-cart"></span><strike>Add&#160;to&#160;Cart</strike></a>
 				</c:when>
 				<c:otherwise>
 					<a
 						href="${pageContext.servletContext.contextPath}/cart/add/${product.productId}/product"
 						class="btn btn-danger"><span
-						class="glyphicon glyphicon-shopping-cart">Add&#160;to&#160;Cart</a>
+						class="glyphicon glyphicon-shopping-cart"></span>Add&#160;to&#160;Cart</a>
 				</c:otherwise>
 
 			</c:choose>
-
+				</security:authorize>
+				<security:authorize access="hasAuthority('ADMIN')">
+		<a href="${pageContext.servletContext.contextPath}/manage/${product.productId}/products"
+						class="btn btn-success"><span
+						class="glyphicon glyphicon-pencil"></span>Edit</a>
+				</security:authorize>
+				
 			<a href="${pageContext.servletContext.contextPath}/show/all/product"
 				class="btn btn-success">Back</a>
 		</div>
 	</div>
+</div>

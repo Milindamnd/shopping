@@ -12,9 +12,9 @@
 			<div class="panel-body">
 				<div class="text-center">
 				<h4>${registerModel.userDetail.fName} ${registerModel.userDetail.lName}</h4>
-				<h5>Email -${registerModel.userDetail.email}</h5>
-				<h5>Role - ${registerModel.userDetail.role}</h5>
-				<h5>Contact -${registerModel.userDetail.contactNumber}</h5>
+				<h5>Email ${registerModel.userDetail.email}</h5>
+				<h5>Role  ${registerModel.userDetail.role}</h5>
+				<h5>Contact ${registerModel.userDetail.contactNumber}</h5>
 				
 				</div>
 			</div>
@@ -35,10 +35,10 @@
 			<div class="panel-body">
 				<div class="text-center">
 					<h5>${registerModel.address.addressLineOne} ${registerModel.address.addressLineTwo}</h5>
-					<h5>City -${registerModel.address.city}</h5>
-					<h5>State -${registerModel.address.state}</h5>
-					<h5>Country -${registerModel.address.country}</h5>
-					<h5>Postal -${registerModel.address.postalCode}</h5>
+					<h5>City ${registerModel.address.city}</h5>
+					<h5>State ${registerModel.address.state}</h5>
+					<h5>Country ${registerModel.address.country}</h5>
+					<h5>Postal ${registerModel.address.postalCode}</h5>
 				</div>
 			</div>
 			<div class="panel-footer">

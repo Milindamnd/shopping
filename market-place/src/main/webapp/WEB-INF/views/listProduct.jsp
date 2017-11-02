@@ -35,35 +35,40 @@
 		</div>
 
 		<div class="col-xs-12">
-
-			<table id="productListTable"
-				class="table table-striped table-borderd" width="100%">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Unit Price</th>
-						<th>Quantity</th>
-						<th></th>
-					</tr>
-
-
-				</thead>
-				<tfoot>
-					<tr>
-						<th></th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Unit Price</th>
-						<th>Quantity</th>
-						<th></th>
-					</tr>
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<table id="productListTable"
+						class="table table-striped table-borderd" width="100%">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Unit Price</th>
+								<th>Quantity</th>
+								<th></th>
+							</tr>
 
 
-				</tfoot>
+						</thead>
+						<tfoot>
+							<tr>
+								<th></th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Unit Price</th>
+								<th>Quantity</th>
+								<th></th>
+							</tr>
 
-			</table>
+
+						</tfoot>
+
+					</table>
+
+				</div>
+			</div>
+
 
 		</div>
 

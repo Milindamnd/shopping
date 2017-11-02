@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mili.onlineShopping.model">
+
+	<class name="CartItem" table="CART_ITEM">
+		<id name="id" type="java.lang.Integer" column="CART_ITEM_ID">
+			<generator class="identity" />
+		</id>
+		<property name="cartId" type="java.lang.Integer" column="CART_ID"/>
+		<property name="total" type="double" column="TOTAL"/>
+		<property name="buyingPrice" type="double" column="BUYING_PRICE"/>
+		<property name="is_Available" type="boolean" column="IS_AVAILABLE"/>
+		<property name="productCount" type="java.lang.Integer" column="PRODUCT_COUNT"/>
+		 <many-to-one name="product" column="PRODUCT_ID" unique="true" cascade="save-update" fetch="join"/>
+	</class>
+</hibernate-mapping>

@@ -15,6 +15,10 @@ $(function(){
 	case 'Manage Products':
 		$('#manageProduct').addClass('active');
 		break;
+		
+	case 'My Cart':
+		$('#mycart').addClass('active');
+		break;
 	default:
 		if(menu == 'Home') $('#home').addClass('active');break;
 		$('#product').addClass('active');
@@ -80,12 +84,17 @@ $(function(){
 					mRender:function(data,type,row){
 						var src='';
 						src +='<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160 ';
-						
-						if(row.qty < 1){
-							src +='<a href="javascript:void(0)"class="btn btn-danger disable"><strike><span class="glyphicon glyphicon-shopping-cart"></span></strike></a> ';
+						if(window.userRole == 'ADMIN'){
+							src +='<a href="'+window.contextRoot+'/manage/'+data+'/products"class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></a> ';
 						}else{
-							src +='<a href="'+window.contextRoot+'/cart/add/'+data+'/product"class="btn btn-danger"><span class="glyphicon glyphicon-shopping-cart"></span></a> ';
+							if(row.qty < 1){
+								src +='<a href="javascript:void(0)"class="btn btn-danger disable"><strike><span class="glyphicon glyphicon-shopping-cart"></span></strike></a> ';
+							}else{
+									src +='<a href="'+window.contextRoot+'/cart/add/'+data+'/product"class="btn btn-danger"><span class="glyphicon glyphicon-shopping-cart"></span></a> ';	
+								
+							}
 						}
+						
 						return src;
 					}
 				}

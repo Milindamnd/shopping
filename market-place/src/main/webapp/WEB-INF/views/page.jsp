@@ -72,6 +72,9 @@
 			<c:if test="${onClickCategory==true}">
 				<%@include file="category.jsp"%>
 			</c:if>
+			<c:if test="${onClickShowCart==true}">
+				<%@include file="cart.jsp"%>
+			</c:if>
 
 		</div>
 		<!-- /.container -->

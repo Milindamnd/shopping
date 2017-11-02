@@ -7,12 +7,20 @@
 <hibernate-mapping package="com.mili.onlineShopping.model">
 
 	<class name="Cart" table="CART">
-		<id name="userId" type="java.lang.Integer" column="USER_ID">
+		<id name="cartId" type="java.lang.Integer" column="CART_ID">
 			<generator class="identity" />
 		</id>
+		<property name="userId" type="java.lang.Integer" column="USER_ID"/>
 		<property name="cartLine" type="java.lang.Integer" column="CART_LINE"/>
 		<property name="grandTotal" type="double" column="GRAND_TOTAL"/>
 		<one-to-one name="userDetail" class="UserDetail"
 			constrained="true"/>
+			
+		 <set name="cartItems" table="CartItem" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CART_ID" />
+            </key>
+            <one-to-many class="CartItem" />
+        </set>
 	</class>
 </hibernate-mapping>

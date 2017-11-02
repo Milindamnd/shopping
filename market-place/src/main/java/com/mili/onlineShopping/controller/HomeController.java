@@ -1,6 +1,12 @@
 package com.mili.onlineShopping.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -93,10 +99,14 @@ public class HomeController {
 		return mv;
 	}
 	@RequestMapping(value="/login")
-	public ModelAndView login(@RequestParam(name="error",required=false)String error) {
+	public ModelAndView login(@RequestParam(name="error",required=false)String error,
+			@RequestParam(name="logout",required=false)String logout) {
 		ModelAndView mv=new ModelAndView("login");
 		if(error!=null) {
 			mv.addObject("message","Invalid Username or Password");
+		}
+		if(logout!=null) {
+			mv.addObject("logout","You are Successfully logged out");
 		}
 		mv.addObject("title","Login");
 		return mv;
@@ -108,6 +118,16 @@ public class HomeController {
 		mv.addObject("titleError","Opps.......!!!");
 		mv.addObject("titleDes","Sorry..You don't have a Permisson to access this page...");
 		return mv;
+	}
+	@RequestMapping(value="/perform-logout")
+	public String logout(HttpServletRequest request,HttpServletResponse response) {
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		
+		if(auth !=null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);;
+		}
+		
+		return "redirect:/login?logout";
 	}
 	
 	

@@ -22,7 +22,7 @@ public class UserDetailDaoImpl implements UserDetailDao {
 	
 	public boolean addUser(UserDetail userDetail) {
 			try {	
-			sessionFactory.getCurrentSession().persist(userDetail);			
+			sessionFactory.getCurrentSession().save(userDetail);			
 				return true;
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -33,7 +33,7 @@ public class UserDetailDaoImpl implements UserDetailDao {
 	@Override
 	public boolean addAddress(Address address) {
 		try {	
-			sessionFactory.getCurrentSession().persist(address);					
+			sessionFactory.getCurrentSession().save(address);					
 				return true;
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -43,8 +43,13 @@ public class UserDetailDaoImpl implements UserDetailDao {
 
 	@Override
 	public boolean addCart(Cart cart) {
-		// TODO Auto-generated method stub
-		return false;
+			try {	
+				sessionFactory.getCurrentSession().save(cart);					
+					return true;
+				}catch (Exception e) {
+					e.printStackTrace();
+					return false;
+				}
 	}
 
 	@Override
@@ -53,6 +58,7 @@ public class UserDetailDaoImpl implements UserDetailDao {
 		try {
 		return sessionFactory.getCurrentSession().createQuery(selectActiveProduct,UserDetail.class).getSingleResult();
 		}catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

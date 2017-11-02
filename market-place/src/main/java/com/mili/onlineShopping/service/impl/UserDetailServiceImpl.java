@@ -13,6 +13,7 @@ import com.mili.onlineShopping.model.UserDetail;
 import com.mili.onlineShopping.service.UserDetailService;
 
 @Service("userDetailService")
+@Transactional
 public class UserDetailServiceImpl implements UserDetailService {
 
 	@Autowired
@@ -29,8 +30,8 @@ public class UserDetailServiceImpl implements UserDetailService {
 
 	@Override
 	public boolean addCart(Cart cart) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return userDetailDao.addCart(cart);
 	}
 
 	@Override
